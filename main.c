@@ -107,8 +107,8 @@ void handle_celsius_to_kelvin(void) {
 void load_options(void) {
     int name_width = 20;
 
-    printf("%-*s\n", name_width, "1. celsius to Fahrenheit");
-    printf("%-*s\n", name_width, "2. Fahrenheit to celsius");
+    printf("%-*s\n", name_width, "1. Celsius to Fahrenheit");
+    printf("%-*s\n", name_width, "2. Fahrenheit to Celsius");
     printf("%-*s\n", name_width, "3. Kelvin to Celsius");
     printf("%-*s\n", name_width, "4. Clecius to Kelvin");
     printf("%-*s\n", name_width, "5. Fahrenheit to Kelvin");
