@@ -91,7 +91,17 @@ void handle_kelvin_to_celcius(void) {
     if (!read_double("Enter Kelvin: ", &kelvin))
         return;
 
-    printf("Result: %.2f °Celcius\n");
+    printf("Result: %.2f °Celcius\n", k_to_c(kelvin));
+}
+
+void handle_celcius_to_kelvin(void) {
+    double celcius;
+    printf("Celcius to Kelvin\n\n");
+
+    if (!read_double("Enter Celcius: ", &celcius))
+        return;
+
+    printf("Result: %.2f Kelvin\n", c_to_k(celcius));
 }
 
 void load_options(void) {
@@ -154,6 +164,10 @@ void load_menu(void) {
 
             case 3:
                 handle_scene(handle_kelvin_to_celcius);
+                break;
+
+            case 4:
+                handle_scene(handle_celcius_to_kelvin);
                 break;
 
             case 0:
