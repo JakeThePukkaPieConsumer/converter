@@ -155,11 +155,10 @@ int footer(void) {
     }
 }
 
-void handle_scene(void (*content)(void)) {
+int handle_scene(void (*content)(void)) {
     clear();
     content();
-    if (!footer())
-        return;
+    return footer();
 }
 
 void load_menu(void) {
@@ -177,27 +176,33 @@ void load_menu(void) {
 
         switch (choice) {
             case 1:
-                handle_scene(handle_celsius_to_fahrenheit);
+                if (!handle_scene(handle_celsius_to_fahrenheit))
+                    return;
                 break;
 
             case 2:
-                handle_scene(handle_fahrenheit_to_celsius);
+                if (!handle_scene(handle_fahrenheit_to_celsius))
+                    return;
                 break;
 
             case 3:
-                handle_scene(handle_kelvin_to_celsius);
+                if (!handle_scene(handle_kelvin_to_celsius))
+                    return;
                 break;
 
             case 4:
-                handle_scene(handle_celsius_to_kelvin);
+                if (!handle_scene(handle_celsius_to_kelvin))
+                    return;
                 break;
 
             case 5:
-                handle_scene(handle_fahrenheit_to_kelvin);
+                if (!handle_scene(handle_fahrenheit_to_kelvin))
+                    return;
                 break;
 
             case 6:
-                handle_scene(handle_kelvin_to_fahrenheit);
+                if (!handle_scene(handle_kelvin_to_fahrenheit))
+                    return;
                 break;
 
             case 0:
