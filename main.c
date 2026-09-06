@@ -66,7 +66,7 @@ double f_to_k(double fahrenheit) {
 
 void handle_celsius_to_fahrenheit(void) {
     double celsius;
-    printf("Celsius - Fahrenheit\n\n");
+    printf("Celsius to Fahrenheit\n\n");
 
     if (!read_double("Enter Celsius: ", &celsius))
         return;
@@ -102,6 +102,16 @@ void handle_celsius_to_kelvin(void) {
         return;
 
     printf("Result: %.2f kelvin\n", c_to_k(celsius));
+}
+
+void handle_fahrenheit_to_kelvin(void) {
+    double fahrenheit;
+    printf("Fahrenheit to Kelvin\n\n");
+
+    if (!read_double("Enter Fahrenheit: ", &fahrenheit))
+        return;
+
+    printf("Result: %.2f kelvin\n", f_to_k(fahrenheit));
 }
 
 void handle_kelvin_to_fahrenheit(void) {
@@ -178,6 +188,10 @@ void load_menu(void) {
 
             case 4:
                 handle_scene(handle_celsius_to_kelvin);
+                break;
+
+            case 5:
+                handle_scene(handle_fahrenheit_to_kelvin);
                 break;
 
             case 6:
