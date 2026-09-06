@@ -84,6 +84,16 @@ void handle_fahrenheit_to_celcius(void) {
     printf("Result: %.2f °Celcius\n", f_to_c(fahrenheit));
 }
 
+void handle_kelvin_to_celcius(void) {
+    double kelvin;
+    printf("Kelivn to Celcius\n\n");
+
+    if (!read_double("Enter Kelvin: ", &kelvin))
+        return;
+
+    printf("Result: %.2f °Celcius\n");
+}
+
 void load_options(void) {
     int name_width = 20;
 
@@ -113,6 +123,13 @@ int footer(void) {
     }
 }
 
+void handle_scene(void (*content)(void)) {
+    clear();
+    content();
+    if (!footer())
+        return;
+}
+
 void load_menu(void) {
     char buf[32];
     int choice;
@@ -128,17 +145,15 @@ void load_menu(void) {
 
         switch (choice) {
             case 1:
-                clear();
-                handle_celcius_to_fahrenheit();
-                if (!footer())
-                    return;
+                handle_scene(handle_celcius_to_fahrenheit);
                 break;
 
             case 2:
-                clear();
-                handle_fahrenheit_to_celcius();
-                if (!footer())
-                    return;
+                handle_scene(handle_fahrenheit_to_celcius);
+                break;
+
+            case 3:
+                handle_scene(handle_kelvin_to_celcius);
                 break;
 
             case 0:
