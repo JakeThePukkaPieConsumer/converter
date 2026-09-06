@@ -86,7 +86,7 @@ void handle_fahrenheit_to_celsius(void) {
 
 void handle_kelvin_to_celsius(void) {
     double kelvin;
-    printf("Kelivn to Celsius\n\n");
+    printf("Kelvin to Celsius\n\n");
 
     if (!read_double("Enter Kelvin: ", &kelvin))
         return;
@@ -130,7 +130,7 @@ void load_options(void) {
     printf("%-*s\n", name_width, "1. Celsius to Fahrenheit");
     printf("%-*s\n", name_width, "2. Fahrenheit to Celsius");
     printf("%-*s\n", name_width, "3. Kelvin to Celsius");
-    printf("%-*s\n", name_width, "4. Clecius to Kelvin");
+    printf("%-*s\n", name_width, "4. Celsius to Kelvin");
     printf("%-*s\n", name_width, "5. Fahrenheit to Kelvin");
     printf("%-*s\n", name_width, "6. Kelvin to Fahrenheit");
 }
