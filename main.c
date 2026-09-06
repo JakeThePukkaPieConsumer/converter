@@ -138,18 +138,20 @@ void load_options(void) {
 int footer(void) {
     char buf[16];
 
-    printf("\nq to Quit | r to Return: ");
+    for (;;) {
+        printf("\n[R]eturn | [Q]uit: ");
 
-    if (!fgets(buf, sizeof buf, stdin))
-        return 0;
-
-    switch (tolower((unsigned char)buf[0])) {
-        case 'q':
+        if (!fgets(buf, sizeof buf, stdin))
             return 0;
-        case 'r':
-            return 1;
-        default:
-            return 1;
+
+        switch (tolower((unsigned char)buf[0])) {
+            case 'q':
+                return 0;
+            case 'r':
+                return 1;
+            default:
+                printf("Please enter R or Q.\n");
+        }
     }
 }
 
