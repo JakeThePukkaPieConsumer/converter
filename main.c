@@ -104,6 +104,16 @@ void handle_celsius_to_kelvin(void) {
     printf("Result: %.2f kelvin\n", c_to_k(celsius));
 }
 
+void handle_kelvin_to_fahrenheit(void) {
+    double kelvin;
+    printf("Kelvin to Fahrenheit\n\n");
+
+    if (!read_double("Enter Kelvin: ", &kelvin))
+        return;
+
+    printf("Result: %.2f fahrenheit\n", k_to_f(kelvin));
+}
+
 void load_options(void) {
     int name_width = 20;
 
@@ -168,6 +178,10 @@ void load_menu(void) {
 
             case 4:
                 handle_scene(handle_celsius_to_kelvin);
+                break;
+
+            case 6:
+                handle_scene(handle_kelvin_to_fahrenheit);
                 break;
 
             case 0:
