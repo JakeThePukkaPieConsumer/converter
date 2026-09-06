@@ -163,7 +163,8 @@ int handle_scene(void (*content)(void)) {
 
 void load_menu(void) {
     char buf[32];
-    int choice;
+    char *end;
+    long choice = strtol(buf, &end, 10);
 
     for (;;) {
         clear();
@@ -172,7 +173,14 @@ void load_menu(void) {
 
         printf("\nChoice: ");
         fgets(buf, sizeof buf, stdin);
-        choice = atoi(buf);
+
+        while (isspace((unsigned char)*end))
+            end++;
+
+        if (end == buf || *end != '\0') {
+            printf("Invalid option.\n");
+            continue;
+        }
 
         switch (choice) {
             case 1:
